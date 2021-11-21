@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "test:testDemo": "testcafe chrome tests/dragControler.ts",
+        "test:testDemo": "testcafe chrome tests/testControler.ts",
         "test:multipleWindow": "testcafe chrome tests/multipleWindows.ts"
     },
     "name": "testcafe-ts",

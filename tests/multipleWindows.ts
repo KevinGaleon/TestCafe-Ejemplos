@@ -7,19 +7,19 @@ let fbSelector: any;
 let url: string = '';
 
 test
-.skip('Nueva Ventana Abierta Automáticamente Después de un Clic', async (t) => {
-    fbSelector = Selector('div.social a').nth(0);
+('Nueva Ventana Abierta Automáticamente Después de un Clic', async (t) => {
+    fbSelector = Selector('.social a:nth-child(1)');
     url = await t.eval(() => document.documentURI);
     console.log('Main URL: ' +  url);
-    await t.expect(url).eql('https://www.stestcafe.io/');
+    await t.expect(url).eql('https://testcafe.io/');
 
     await t
-    .wait(3000)
     .click(fbSelector)
+    .wait(5000)
 
     url = await t.eval(() => document.documentURI);
     console.log('FB URL: ' +  url);
-    //await t.expect(url).eql('https://www.facebook.com/dxtestcafe/');
+    await t.expect(url).eql('https://www.facebook.com/dxtestcafe/');
 });
 
 test 

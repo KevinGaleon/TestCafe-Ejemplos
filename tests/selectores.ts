@@ -35,6 +35,8 @@ test
         const headerString: string = await headerSelector.innerText;
 
         console.log('Header String: ' + headerString);
+
+        await t.expect(headerString).eql('Web Tables');
     });
 
     /** ------ SEGUNDO MÉTODO ------**/
@@ -52,6 +54,8 @@ test
     const headerString: string = await headerSelector.innerText;
 
     console.log('Header String: ' + headerString);
+
+    await t.expect(headerString).eql('Web Tables');
 });
 
 /** ------ TERCER MÉTODO ------**/
@@ -68,6 +72,8 @@ test
         const headerString: string = await headerSelector.innerText;
 
         console.log('Header String: ' + headerString);
+
+        await t.expect(headerString).eql('Web Tables');
     });
 
 test
@@ -76,20 +82,18 @@ test
         console.log('Child Selector Example');
 
         //Selection to get the first child element
-        const checkboxChildren = Selector('ul').child(3);
+        const checkboxChildren = Selector('ul').child(1);
 
         await t
-        // //To click on CheckBox
-        //.click(elementWithId('Item-1));
-        // //to expand the options
-        // .click('#tree-node > ol > li > span > button`)
             .click(checkboxChildren)
-            .wait(5000)
+            .wait(3000)
 
         const headerSelector = Selector('.main-header');
         const headerString: string = await headerSelector.innerText;
 
         console.log('Header String: ' + headerString);
+
+        await t.expect(headerString).eql('Check Box');
     });
 
 test
@@ -98,7 +102,7 @@ test
         console.log('Child Selector Example');
 
         await t
-        //To click on CheckBox
+            //To click on CheckBox
             .click(elementWithId('item-1'))
             //to expand the options
             .click('#tree-node > ol > li > span > button')
@@ -121,6 +125,10 @@ test
         const result: string = await textDisplayedSelector.innerText;
 
         console.log(result);
+
+        await t.expect(result).contains('desktop');
+        await t.expect(result).contains('documents');
+        await t.expect(result).contains('downloads');
     });
 
 test
@@ -145,6 +153,8 @@ test
         const headerString: string = await headerSelector.innerText;
 
         console.log(headerString);
+
+        await t.expect(headerString).eql('Registration Form');
     });
 
 test
@@ -169,4 +179,5 @@ test
         const headerString: string = await headerSelector.innerText;
 
         console.log(headerString);
+        await t.expect(headerString).eql('Registration Form');
     });

@@ -9,39 +9,34 @@ fixture `SELECTOR_SESSION`
 test
     .skip('Type Selector Example', async (t) => {
         
-        ///html/body/div[2]/div/div/div[2]/div[1]/div/div/div[5]/div/ul/li[5]
-        //#app > div > div > div.row > div:nth-child(1) > div > div > div:nth-child(5)
         elemento = Selector('#app > div > div > div.row > div:nth-child(1) > div > div > div:nth-child(1)');
         await t
             .click(elemento)
-            .wait(1000)
 
         elemento = Selector('#item-0');
         await t
             .click(elemento)
-            .wait(1000)
 
         const userName = Selector('#userName');
         const userEmail = Selector('#userEmail');
         const currentAddress = Selector('#currentAddress');
         await t
             .typeText(userName, 'Kevin Garzón')
-            .wait(500)
             .typeText(userEmail, 'Kevin@hotmail.com')
-            .wait(500)
             .typeText(currentAddress, 'El Cambio')
-            .wait(500)
         
         elemento = Selector('button').withExactText('Submit');
         await t
             .click(elemento)
-            .wait(3000)
+            .wait(1000)
 
         const output = Selector('#output');
         const salida: string = await output.innerText;
 
         console.log('Datos: ');
         console.log(salida);
+
+        await t.expect(salida).notEql('');
     });
 
 test
