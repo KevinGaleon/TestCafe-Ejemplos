@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "test:testDemo": "testcafe chrome tests/dragControler.ts",
+        "test:multipleWindow": "testcafe chrome tests/multipleWindows.ts"
+    },
+    "name": "testcafe-ts",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC"
+}
